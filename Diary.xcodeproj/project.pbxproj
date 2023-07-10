@@ -12,9 +12,10 @@
 		2618F6A18FAEB5F8489D49C7 /* Pods_Diary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FDE1908561418402192065E /* Pods_Diary.framework */; };
 		A2142A5B2A59ADE100F54284 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2142A5A2A59ADE100F54284 /* Note.swift */; };
 		A2142A5E2A59B17000F54284 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2142A5D2A59B17000F54284 /* NoteTableViewCell.swift */; };
-		A2142A612A5B49BD00F54284 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2142A602A5B49BD00F54284 /* UITableView+.swift */; };
 		A27737622A5C00A90097B602 /* Notes.json in Resources */ = {isa = PBXBuildFile; fileRef = A27737612A5C00A90097B602 /* Notes.json */; };
 		A27737652A5C0C890097B602 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27737642A5C0C890097B602 /* ResponseData.swift */; };
+		A27737672A5C12FF0097B602 /* Results+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27737662A5C12FF0097B602 /* Results+.swift */; };
+		A27737692A5C18C70097B602 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27737682A5C18C70097B602 /* Date+.swift */; };
 		A299432B2A5B644E0027B9CF /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A299432A2A5B644E0027B9CF /* RealmManager.swift */; };
 		A299432D2A5B66CC0027B9CF /* CreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A299432C2A5B66CC0027B9CF /* CreateNoteViewController.swift */; };
 		A299432F2A5B6A490027B9CF /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A299432E2A5B6A490027B9CF /* FileReader.swift */; };
@@ -58,9 +59,10 @@
 		A005564663B5451B5E8D33EB /* Pods-Diary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diary.debug.xcconfig"; path = "Target Support Files/Pods-Diary/Pods-Diary.debug.xcconfig"; sourceTree = "<group>"; };
 		A2142A5A2A59ADE100F54284 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		A2142A5D2A59B17000F54284 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
-		A2142A602A5B49BD00F54284 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		A27737612A5C00A90097B602 /* Notes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Notes.json; path = Diary/Notes.json; sourceTree = "<group>"; };
 		A27737642A5C0C890097B602 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
+		A27737662A5C12FF0097B602 /* Results+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+.swift"; sourceTree = "<group>"; };
+		A27737682A5C18C70097B602 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		A299432A2A5B644E0027B9CF /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		A299432C2A5B66CC0027B9CF /* CreateNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewController.swift; sourceTree = "<group>"; };
 		A299432E2A5B6A490027B9CF /* FileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
@@ -163,7 +165,8 @@
 		A2142A5F2A5B49A900F54284 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A2142A602A5B49BD00F54284 /* UITableView+.swift */,
+				A27737662A5C12FF0097B602 /* Results+.swift */,
+				A27737682A5C18C70097B602 /* Date+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -518,12 +521,13 @@
 			files = (
 				A2BB7A642A5719FF006EFD47 /* ViewController.swift in Sources */,
 				A2BB7A602A5719FF006EFD47 /* AppDelegate.swift in Sources */,
+				A27737672A5C12FF0097B602 /* Results+.swift in Sources */,
+				A27737692A5C18C70097B602 /* Date+.swift in Sources */,
 				A299432D2A5B66CC0027B9CF /* CreateNoteViewController.swift in Sources */,
 				A299432F2A5B6A490027B9CF /* FileReader.swift in Sources */,
 				A27737652A5C0C890097B602 /* ResponseData.swift in Sources */,
 				A29943312A5B6FD10027B9CF /* NoteEntity.swift in Sources */,
 				A2BB7A622A5719FF006EFD47 /* SceneDelegate.swift in Sources */,
-				A2142A612A5B49BD00F54284 /* UITableView+.swift in Sources */,
 				A2142A5E2A59B17000F54284 /* NoteTableViewCell.swift in Sources */,
 				A299432B2A5B644E0027B9CF /* RealmManager.swift in Sources */,
 				A2142A5B2A59ADE100F54284 /* Note.swift in Sources */,

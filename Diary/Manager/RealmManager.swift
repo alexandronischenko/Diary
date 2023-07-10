@@ -5,7 +5,7 @@ class RealmManager {
     static let shared = RealmManager()
 
     private func getRealm() -> Realm {
-        if let _ = NSClassFromString("XCTest") {
+        if NSClassFromString("XCTest") != nil {
             // swiftlint:disable force_try
             let config = Realm.Configuration(fileURL: nil, inMemoryIdentifier: "test", encryptionKey: nil, readOnly: false, schemaVersion: 0, migrationBlock: nil, objectTypes: nil)
             return try! Realm(configuration: config)
@@ -39,12 +39,10 @@ class RealmManager {
         realm.refresh()
 
         if realm.isInWriteTransaction {
-//            realm.add(data, update: update)
-            realm.add(data)
+            realm.add(data, update: .all)
         } else {
             try? realm.write {
-//                realm.add(data, update: update)
-                realm.add(data)
+                realm.add(data, update: .all)
             }
         }
     }
@@ -80,6 +78,16 @@ class RealmManager {
         let realm = getRealm()
         realm.refresh()
         try? realm.write { realm.deleteAll() }
+    }
+
+    func newID() -> Int {
+        let realm = getRealm()
+        realm.refresh()
+        if let last = realm.objects(NoteEntity.self).array.last?.id {
+            print(last)
+            return last + 1
+        }
+        return 0
     }
 }
 

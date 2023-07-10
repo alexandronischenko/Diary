@@ -10,8 +10,22 @@ import RealmSwift
 
 // MARK: - Note
 class Note: Codable {
-    let id: Int
-    let dateStart, dateFinish, name, noteDescription: String
+    var id: Int
+    var dateStart, dateFinish, name, noteDescription: String
+
+    var dateSt: String {
+        let dateFormatter = DateFormatter()
+        let date = dateFormatter.date(from: dateStart)
+        dateFormatter.dateFormat = "HH:mm"
+        return dateFormatter.string(from: date ?? Date())
+    }
+
+    var dateFi: String {
+        let dateFormatter = DateFormatter()
+        let date = dateFormatter.date(from: dateFinish)
+        dateFormatter.dateFormat = "HH:mm"
+        return dateFormatter.string(from: date ?? Date())
+    }
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -27,6 +41,14 @@ class Note: Codable {
         self.dateFinish = dateFinish
         self.name = name
         self.noteDescription = noteDescription
+    }
+
+    convenience init(from note: NoteEntity) {
+        self.init(id: note.id ?? 0,
+                  dateStart: note.dateStart ?? "0",
+                  dateFinish: note.dateFinish ?? "0",
+                  name: note.name ?? "0",
+                  noteDescription: note.noteDescription ?? "0")
     }
 
     required init(from decoder: Decoder) throws {

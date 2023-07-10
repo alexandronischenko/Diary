@@ -16,15 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         var window: UIWindow?
         window = UIWindow()
-        if let note = FileReader.shared.loadJson()?.first {
-            // swiftlint:disable force_try
-            let realm = try! Realm()
-            print(Realm.Configuration.defaultConfiguration.fileURL)
-            try! realm.write({
-                realm.add(NoteEntity(from: note))
-            })
-            // swiftlint:enable force_try
-        }
+
+        // MARK: - УДАЛИТЬ
+//        if let notes = FileReader.shared.loadJson() {
+//            // swiftlint:disable force_try
+//            let realm = try! Realm()
+//            print(Realm.Configuration.defaultConfiguration.fileURL ?? "")
+//            let entities = notes.map { note in
+//                NoteEntity(from: note)
+//            }
+//            try! realm.write({
+//                realm.add(entities)
+//            })
+//            // swiftlint:enable force_try
+//        }
+        // MARK: - УДАЛИТЬ
 
         let viewController = UINavigationController(rootViewController: ViewController())
         window?.rootViewController = viewController

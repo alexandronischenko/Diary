@@ -1,18 +1,12 @@
 import UIKit
 import SnapKit
 import FSCalendar
+import RealmSwift
 
 class ViewController: UIViewController {
 
     // MODELS
-    var notes: [Note] = [
-        Note(id: 0, dateStart: "01:00", dateFinish: "01:00", name: "Дело номер один", noteDescription: ""),
-        Note(id: 1, dateStart: "01:00", dateFinish: "01:00", name: "Второе дело", noteDescription: ""),
-        Note(id: 2, dateStart: "01:00", dateFinish: "01:00", name: "Отдых", noteDescription: ""),
-        Note(id: 3, dateStart: "", dateFinish: "", name: "first", noteDescription: ""),
-        Note(id: 4, dateStart: "", dateFinish: "", name: "second", noteDescription: ""),
-        Note(id: 5, dateStart: "", dateFinish: "", name: "third", noteDescription: "")
-    ]
+    var notes = [Note]()
 
     fileprivate weak var calendar: FSCalendar!
     private var calendarHeight: NSLayoutConstraint!
@@ -26,16 +20,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
+
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Diary"
+        let button = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(self.addButton))
+        navigationItem.rightBarButtonItem = button
 
         self.tableView.register(NoteTableViewCell.self, forCellReuseIdentifier: "NoteTableViewCell")
 
         view.addSubview(tableView)
 
         // Setup tableview
-
         tableView.dataSource = self
         tableView.delegate = self
         tableView.snp.makeConstraints { make in
@@ -52,16 +48,49 @@ class ViewController: UIViewController {
         self.calendar = calendar
         tableView.tableHeaderView = calendar
 
+        // SETUP notes
+
+        if let result = RealmManager.shared.objects(NoteEntity.self)?.array {
+            notes = result.map({ entity in
+                Note.init(from: entity)
+
+            })
+        }
+    }
+
+    @objc func addButton() {
+        let viewController = CreateNoteViewController()
+
+        if let date = calendar.selectedDate {
+            var calendar = Calendar.current
+//            let timezone = TimeZone(secondsFromGMT: 0)!
+            calendar.timeZone = .current
+
+            let dateFormatter = DateFormatter()
+            var dateComponents = dateFormatter.calendar.dateComponents([.year, .month, .day], from: date)
+            dateComponents.hour = 0
+            dateComponents.second = 0
+
+            let newDate = calendar.date(from: dateComponents)
+            viewController.date = newDate
+            navigationController?.pushViewController(viewController, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Choose date", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .cancel)
+            alert.addAction(action)
+            self.present(alert, animated: true)
+        }
     }
 }
 
-extension ViewController: FSCalendarDataSource {
-}
-
-extension ViewController: FSCalendarDelegate {
+extension ViewController: FSCalendarDataSource, FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         calendarHeight.constant = bounds.height
         self.view.layoutIfNeeded()
+    }
+
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+
     }
 }
 
@@ -87,7 +116,7 @@ extension ViewController: UITableViewDataSource {
             cell?.label.text = "Cоздайте заметку, чтобы она тут отобразилась"
         } else {
             cell?.label.text = notes[indexPath.row].name
-            cell?.timeLabel.text = notes[indexPath.row].dateStart + " - " + notes[indexPath.row].dateFinish
+            cell?.timeLabel.text = notes[indexPath.row].dateSt + " - " + notes[indexPath.row].dateFi
         }
         return cell ?? UITableViewCell()
     }
