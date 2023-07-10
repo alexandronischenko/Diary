@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Diary
-//
-//  Created by Alexandr Onischenko on 06.07.2023.
-//
-
 import UIKit
 import RealmSwift
 import Realm
@@ -17,9 +10,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var window: UIWindow?
         window = UIWindow()
 
-        // MARK: - УДАЛИТЬ
+        // MARK: - Была загрузка из JSON файла
 //        if let notes = FileReader.shared.loadJson() {
-//            // swiftlint:disable force_try
 //            let realm = try! Realm()
 //            print(Realm.Configuration.defaultConfiguration.fileURL ?? "")
 //            let entities = notes.map { note in
@@ -28,9 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            try! realm.write({
 //                realm.add(entities)
 //            })
-//            // swiftlint:enable force_try
 //        }
-        // MARK: - УДАЛИТЬ
 
         let viewController = UINavigationController(rootViewController: ViewController())
         window?.rootViewController = viewController

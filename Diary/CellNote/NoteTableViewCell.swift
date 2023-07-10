@@ -1,10 +1,3 @@
-//
-//  NoteTableViewCell.swift
-//  Diary
-//
-//  Created by Alexandr Onischenko on 08.07.2023.
-//
-
 import UIKit
 
 class NoteTableViewCell: UITableViewCell {

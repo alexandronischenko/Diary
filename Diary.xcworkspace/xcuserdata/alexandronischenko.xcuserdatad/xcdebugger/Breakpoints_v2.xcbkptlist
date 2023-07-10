@@ -68,8 +68,8 @@
             filePath = "Diary/CellNote/NoteTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "init(style:reuseIdentifier:)"
             landmarkType = "7">
             <Locations>
@@ -132,8 +132,8 @@
             filePath = "Diary/Flow/Main/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>

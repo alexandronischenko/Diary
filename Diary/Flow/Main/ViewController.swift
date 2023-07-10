@@ -48,8 +48,7 @@ class ViewController: UIViewController {
         self.calendar = calendar
         tableView.tableHeaderView = calendar
 
-        // SETUP notes
-
+        // Setup notes
         if let result = RealmManager.shared.objects(NoteEntity.self)?.array {
             notes = result.map({ entity in
                 Note.init(from: entity)
@@ -63,7 +62,6 @@ class ViewController: UIViewController {
 
         if let date = calendar.selectedDate {
             var calendar = Calendar.current
-//            let timezone = TimeZone(secondsFromGMT: 0)!
             calendar.timeZone = .current
 
             let dateFormatter = DateFormatter()
@@ -90,7 +88,13 @@ extension ViewController: FSCalendarDataSource, FSCalendarDelegate {
     }
 
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-
+        print(date)
+        // MARK: - Filter objects from realm relevant to date
+//        RealmManager.shared.objects(NoteEntity.self)?.where({ note in
+//            note.dateStart
+//        })
+//        notes
+//        tableView.reloadData()
     }
 }
 

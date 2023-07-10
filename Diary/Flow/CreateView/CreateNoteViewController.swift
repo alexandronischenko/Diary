@@ -1,10 +1,3 @@
-//
-//  CreateNoteViewController.swift
-//  Diary
-//
-//  Created by Alexandr Onischenko on 10.07.2023.
-//
-
 import Foundation
 import UIKit
 import SnapKit
@@ -63,9 +56,12 @@ class CreateNoteViewController: UIViewController {
 
     @objc func addNote() {
         if let name = nameLabel.text, let description = descriptionLabel.text {
+            var dateFormatter = DateFormatter()
+
+            dateFormatter.dateFormat = ""
             let note = Note(id: RealmManager.shared.newID(),
-                            dateStart: time.currentTimeMillis().description,
-                            dateFinish: time.addingTimeInterval(3600).currentTimeMillis().description,
+                            dateStart: time.description,
+                            dateFinish: time.addingTimeInterval(3600).description,
                             name: name,
                             noteDescription: description)
             let noteEntity = NoteEntity(from: note)
@@ -123,7 +119,7 @@ class CreateNoteViewController: UIViewController {
         set {
             let timezone = TimeZone(secondsFromGMT: 0)!
             calendar.timeZone = timezone
-            let components = self.calendar.dateComponents([.hour, .minute], from: newValue)
+            let components = self.calendar.dateComponents([.year, .day, .hour, .minute], from: newValue)
             if let hour = components.hour {
                 self.pickerView.selectRow(hour, inComponent: 0, animated: true)
             }

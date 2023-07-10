@@ -1,10 +1,3 @@
-//
-//  ResponseData.swift
-//  Diary
-//
-//  Created by Alexandr Onischenko on 10.07.2023.
-//
-
 import Foundation
 
 class ResponseData: Codable {

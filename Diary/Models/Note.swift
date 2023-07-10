@@ -1,10 +1,3 @@
-//
-//  Note.swift
-//  Diary
-//
-//  Created by Alexandr Onischenko on 08.07.2023.
-//
-
 import Foundation
 import RealmSwift
 
