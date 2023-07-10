@@ -6,25 +6,36 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: - Note
 class Note: Codable {
     let id: Int
-    let dateStart, dateFinish, name, description: String
+    let dateStart, dateFinish, name, noteDescription: String
 
     enum CodingKeys: String, CodingKey {
         case id
         case dateStart = "date_start"
         case dateFinish = "date_finish"
-        case name, description
+        case name
+        case noteDescription = "note_description"
     }
 
-    init(id: Int, dateStart: String, dateFinish: String, name: String, description: String) {
+    init(id: Int, dateStart: String, dateFinish: String, name: String, noteDescription: String) {
         self.id = id
         self.dateStart = dateStart
         self.dateFinish = dateFinish
         self.name = name
-        self.description = description
+        self.noteDescription = noteDescription
+    }
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.dateStart = try container.decode(String.self, forKey: .dateStart)
+        self.dateFinish = try container.decode(String.self, forKey: .dateFinish)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.noteDescription = try container.decode(String.self, forKey: .noteDescription)
     }
 }
 
@@ -33,7 +44,7 @@ class Note: Codable {
 extension Note {
     convenience init(data: Data) throws {
         let note = try newJSONDecoder().decode(Note.self, from: data)
-        self.init(id: note.id, dateStart: note.dateStart, dateFinish: note.dateFinish, name: note.name, description: note.description)
+        self.init(id: note.id, dateStart: note.dateStart, dateFinish: note.dateFinish, name: note.name, noteDescription: note.noteDescription)
     }
 
     convenience init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -52,14 +63,14 @@ extension Note {
         dateStart: String? = nil,
         dateFinish: String? = nil,
         name: String? = nil,
-        description: String? = nil
+        noteDescription: String? = nil
     ) -> Note {
         return Note(
             id: id ?? self.id,
             dateStart: dateStart ?? self.dateStart,
             dateFinish: dateFinish ?? self.dateFinish,
             name: name ?? self.name,
-            description: description ?? self.description
+            noteDescription: noteDescription ?? self.noteDescription
         )
     }
 

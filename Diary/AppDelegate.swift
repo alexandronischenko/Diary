@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RealmSwift
+import Realm
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,9 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         var window: UIWindow?
         window = UIWindow()
+        if let note = FileReader.shared.loadJson()?.first {
+            // swiftlint:disable force_try
+            let realm = try! Realm()
+            print(Realm.Configuration.defaultConfiguration.fileURL)
+            try! realm.write({
+                realm.add(NoteEntity(from: note))
+            })
+            // swiftlint:enable force_try
+        }
+
         let viewController = UINavigationController(rootViewController: ViewController())
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
+
         return true
     }
 

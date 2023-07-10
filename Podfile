@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+ platform :ios, '12.0'
 
 target 'Diary' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -9,6 +9,7 @@ target 'Diary' do
   pod 'SwiftLint'
   pod 'SnapKit'
   pod 'FSCalendar'
+  pod 'RealmSwift'
 
   target 'DiaryTests' do
     inherit! :search_paths

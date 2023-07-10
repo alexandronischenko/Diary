@@ -13,6 +13,12 @@
 		A2142A5B2A59ADE100F54284 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2142A5A2A59ADE100F54284 /* Note.swift */; };
 		A2142A5E2A59B17000F54284 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2142A5D2A59B17000F54284 /* NoteTableViewCell.swift */; };
 		A2142A612A5B49BD00F54284 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2142A602A5B49BD00F54284 /* UITableView+.swift */; };
+		A27737622A5C00A90097B602 /* Notes.json in Resources */ = {isa = PBXBuildFile; fileRef = A27737612A5C00A90097B602 /* Notes.json */; };
+		A27737652A5C0C890097B602 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27737642A5C0C890097B602 /* ResponseData.swift */; };
+		A299432B2A5B644E0027B9CF /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A299432A2A5B644E0027B9CF /* RealmManager.swift */; };
+		A299432D2A5B66CC0027B9CF /* CreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A299432C2A5B66CC0027B9CF /* CreateNoteViewController.swift */; };
+		A299432F2A5B6A490027B9CF /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A299432E2A5B6A490027B9CF /* FileReader.swift */; };
+		A29943312A5B6FD10027B9CF /* NoteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29943302A5B6FD10027B9CF /* NoteEntity.swift */; };
 		A2BB7A602A5719FF006EFD47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB7A5F2A5719FF006EFD47 /* AppDelegate.swift */; };
 		A2BB7A622A5719FF006EFD47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB7A612A5719FF006EFD47 /* SceneDelegate.swift */; };
 		A2BB7A642A5719FF006EFD47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB7A632A5719FF006EFD47 /* ViewController.swift */; };
@@ -53,6 +59,12 @@
 		A2142A5A2A59ADE100F54284 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		A2142A5D2A59B17000F54284 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		A2142A602A5B49BD00F54284 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
+		A27737612A5C00A90097B602 /* Notes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Notes.json; path = Diary/Notes.json; sourceTree = "<group>"; };
+		A27737642A5C0C890097B602 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
+		A299432A2A5B644E0027B9CF /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		A299432C2A5B66CC0027B9CF /* CreateNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewController.swift; sourceTree = "<group>"; };
+		A299432E2A5B6A490027B9CF /* FileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
+		A29943302A5B6FD10027B9CF /* NoteEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEntity.swift; sourceTree = "<group>"; };
 		A2BB7A5C2A5719FF006EFD47 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BB7A5F2A5719FF006EFD47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2BB7A612A5719FF006EFD47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +131,7 @@
 		A2142A572A571EBB00F54284 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A2BB7A632A5719FF006EFD47 /* ViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -126,6 +139,7 @@
 		A2142A582A571ED700F54284 /* CreateView */ = {
 			isa = PBXGroup;
 			children = (
+				A299432C2A5B66CC0027B9CF /* CreateNoteViewController.swift */,
 			);
 			path = CreateView;
 			sourceTree = "<group>";
@@ -154,9 +168,29 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A27737632A5C0C780097B602 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A29943302A5B6FD10027B9CF /* NoteEntity.swift */,
+				A27737642A5C0C890097B602 /* ResponseData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A29943292A5B64410027B9CF /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A27737632A5C0C780097B602 /* Models */,
+				A299432E2A5B6A490027B9CF /* FileReader.swift */,
+				A299432A2A5B644E0027B9CF /* RealmManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		A2BB7A532A5719FF006EFD47 = {
 			isa = PBXGroup;
 			children = (
+				A27737612A5C00A90097B602 /* Notes.json */,
 				A2BB7A5E2A5719FF006EFD47 /* Diary */,
 				A2BB7A752A571A00006EFD47 /* DiaryTests */,
 				A2BB7A7F2A571A00006EFD47 /* DiaryUITests */,
@@ -179,13 +213,13 @@
 		A2BB7A5E2A5719FF006EFD47 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				A29943292A5B64410027B9CF /* Manager */,
 				A2142A5F2A5B49A900F54284 /* Extensions */,
 				A2142A5C2A59B15900F54284 /* CellNote */,
 				A2142A592A59ADD300F54284 /* Models */,
 				A2142A562A571EB500F54284 /* Flow */,
 				A2BB7A5F2A5719FF006EFD47 /* AppDelegate.swift */,
 				A2BB7A612A5719FF006EFD47 /* SceneDelegate.swift */,
-				A2BB7A632A5719FF006EFD47 /* ViewController.swift */,
 				A2BB7A652A5719FF006EFD47 /* Main.storyboard */,
 				A2BB7A682A571A00006EFD47 /* Assets.xcassets */,
 				A2BB7A6A2A571A00006EFD47 /* LaunchScreen.storyboard */,
@@ -337,6 +371,7 @@
 				A2BB7A6C2A571A00006EFD47 /* LaunchScreen.storyboard in Resources */,
 				A2BB7A692A571A00006EFD47 /* Assets.xcassets in Resources */,
 				A2BB7A672A5719FF006EFD47 /* Main.storyboard in Resources */,
+				A27737622A5C00A90097B602 /* Notes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,9 +518,14 @@
 			files = (
 				A2BB7A642A5719FF006EFD47 /* ViewController.swift in Sources */,
 				A2BB7A602A5719FF006EFD47 /* AppDelegate.swift in Sources */,
+				A299432D2A5B66CC0027B9CF /* CreateNoteViewController.swift in Sources */,
+				A299432F2A5B6A490027B9CF /* FileReader.swift in Sources */,
+				A27737652A5C0C890097B602 /* ResponseData.swift in Sources */,
+				A29943312A5B6FD10027B9CF /* NoteEntity.swift in Sources */,
 				A2BB7A622A5719FF006EFD47 /* SceneDelegate.swift in Sources */,
 				A2142A612A5B49BD00F54284 /* UITableView+.swift in Sources */,
 				A2142A5E2A59B17000F54284 /* NoteTableViewCell.swift in Sources */,
+				A299432B2A5B644E0027B9CF /* RealmManager.swift in Sources */,
 				A2142A5B2A59ADE100F54284 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -662,6 +702,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 83DZ5UD4QS;
@@ -691,6 +732,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 83DZ5UD4QS;

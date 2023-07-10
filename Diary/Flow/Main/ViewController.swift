@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Diary
-//
-//  Created by Alexandr Onischenko on 06.07.2023.
-//
-
 import UIKit
 import SnapKit
 import FSCalendar
@@ -13,12 +6,12 @@ class ViewController: UIViewController {
 
     // MODELS
     var notes: [Note] = [
-//        Note(id: 0, dateStart: "01:00", dateFinish: "01:00", name: "Дело номер один", description: ""),
-//        Note(id: 1, dateStart: "01:00", dateFinish: "01:00", name: "Второе дело", description: ""),
-//        Note(id: 2, dateStart: "01:00", dateFinish: "01:00", name: "Отдых", description: ""),
-//        Note(id: 3, dateStart: "", dateFinish: "", name: "first", description: ""),
-//        Note(id: 4, dateStart: "", dateFinish: "", name: "second", description: ""),
-//        Note(id: 5, dateStart: "", dateFinish: "", name: "third", description: ""),
+        Note(id: 0, dateStart: "01:00", dateFinish: "01:00", name: "Дело номер один", noteDescription: ""),
+        Note(id: 1, dateStart: "01:00", dateFinish: "01:00", name: "Второе дело", noteDescription: ""),
+        Note(id: 2, dateStart: "01:00", dateFinish: "01:00", name: "Отдых", noteDescription: ""),
+        Note(id: 3, dateStart: "", dateFinish: "", name: "first", noteDescription: ""),
+        Note(id: 4, dateStart: "", dateFinish: "", name: "second", noteDescription: ""),
+        Note(id: 5, dateStart: "", dateFinish: "", name: "third", noteDescription: "")
     ]
 
     fileprivate weak var calendar: FSCalendar!
@@ -58,6 +51,7 @@ class ViewController: UIViewController {
         calendar.delegate = self
         self.calendar = calendar
         tableView.tableHeaderView = calendar
+
     }
 }
 
@@ -88,7 +82,7 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteTableViewCell", for: indexPath) as? NoteTableViewCell
         if notes.count == 0 {
             cell?.selectionStyle = .none
-            cell?.label.font = .systemFont(ofSize: 12, weight: .bold)
+            cell?.label.font = .systemFont(ofSize: 12, weight: .medium)
             cell?.label.textAlignment = .center
             cell?.label.text = "Cоздайте заметку, чтобы она тут отобразилась"
         } else {
